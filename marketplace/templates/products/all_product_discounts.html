@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 {% load query_transformer_tags %}
+
 {% block content %}
 <div class="Middle Middle_top">
     <div class="Section-content">
@@ -16,7 +18,7 @@
                 <div class="Card-content">
                     <strong class="Card-title"><a href="{% url 'pages:product-detail' product_info.product.pk %}">{{ product_info.product.title }}</a>
                     </strong>
-                    <small>Отзывы: {{ product_info.review_count }}</small>
+                    <small>{% trans "Отзывы" %}: {{ product_info.review_count }}</small>
                     <div class="Card-description">
                         <div class="Card-cost"><span class="Card-price"> <del style="color: red;">${{ product_info.average_price|floatformat:2 }} </del></span>
                             <span class="Card-price"> ${{ product_info.average_with_discount|floatformat:2 }} </span></div>

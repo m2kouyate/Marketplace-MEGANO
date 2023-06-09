@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block content %}
@@ -8,8 +9,8 @@
                 <div class="Product">
                 {% if not match %}
                     <div style="text-align: center; margin-top: 60px; margin-bottom: 60px">
-                        <strong class="Cart-title">В сравнении товары из разных категорий.<br>
-                            Их нельзя сравнить
+                        <strong class="Cart-title">{% trans "В сравнении товары из разных категорий" %}.<br>
+                            {% trans "Их нельзя сравнить" %}
                         </strong>
                     </div>
                 {% endif %}
@@ -31,11 +32,11 @@
 
                                                         <table>
                                                             <tr>
-                                                                <th class="hed">Характеристика</th>
-                                                                <th class="hed">Значение</th>
+                                                                <th class="hed">{% trans "Характеристика" %}</th>
+                                                                <th class="hed">{% trans "Значение" %}</th>
                                                             </tr>
                                                             <tr>
-                                                                <td class="">Цена (руб.)</td>
+                                                                <td class="">{% trans "снова" %}Цена (руб.)</td>
                                                                 <td class="">{{ product.best_offer.price }}</td>
                                                             </tr>
                                                             {% if match %}
@@ -68,13 +69,13 @@
                                     <div class="ProductCard-cartElement">
                                         <a class="btn btn_primary" href="{% url 'app_basket:add_to_cart'%}?offer_id={{ product.offers.first.pk }}">
                                             <img class="btn-icon" src="{% static 'assets/img/icons/card/cart_white.svg' %}" alt="cart_white.svg" />
-                                            <span class="btn-content">Добавить в корзину</span>
+                                            <span class="btn-content">{% trans "Добавить в корзину" %}</span>
                                         </a>
                                     </div>
                                     <div class="ProductCard-cartElement">
                                         <a class="btn btn_primary" href="{% url 'pages:remove_from_comparison_list'%}?product={{ product.pk }}">
                                             <img class="btn-icon" src="{% static 'assets/img/icons/card/change_white.svg' %}" alt="change_white.svg" />
-                                            <span class="btn-content">Удалить из сравнения</span>
+                                            <span class="btn-content">{% trans "Удалить из сравнения" %}</span>
                                         </a>
                                     </div>
                                 </div>
@@ -89,13 +90,13 @@
             <div class="ProductCard-cartElement">
                 <a class="btn btn_primary" href="{% url 'pages:clear_comparison_list'%}">
                     <img class="btn-icon" src="{% static 'assets/img/icons/card/change_white.svg' %}" alt="change_white.svg" />
-                    <span class="btn-content">Очистить сравнение</span>
+                    <span class="btn-content">{% trans "Очистить сравнение" %}</span>
                 </a>
             </div>
         </div>
         <div style="text-align: center; margin-top: 60px">
-            <strong class="Cart-title">В сравнении добавлено {{ comparison_list|length }} товар(ов).<br>
-                Для отображения списка сравнения должно быть выбрано 2 и более продуктов.
+            <strong class="Cart-title">{% trans "В сравнении добавлено {{ comparison_list|length }} товар(ов).<br>
+                Для отображения списка сравнения должно быть выбрано 2 и более продуктов." %}
             </strong>
             <img src="{% static 'assets/img/content/home/no-pic.png' %}" alt="no-pic.png" style="max-width: 500px; width: 100%"/>
         </div>

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% block title %}DiscountList{% endblock %}
 {% load static %}
 {% load query_transformer_tags %}
@@ -39,8 +40,11 @@
                         {% endif %}
                         <div class="Card-content">
                             <strong class="Card-title">
-                                <a href="{% url 'pages:discount_detail' discount.pk %}">{% if discount.is_percent %}{{ discount.size }}% скидки
-                                            {% else %} Купон {{ discount.size }}${% endif %} на {{ discount.product.title }}
+                                <a href="{% url 'pages:discount_detail' discount.pk %}">
+                                    {% if discount.is_percent %}
+                                        {{ discount.size }}% {% trans "скидки" %}
+                                    {% else %} {% trans "Купон" %} {{ discount.size }}$
+                                    {% endif %} {% trans "на" %} {{ discount.product.title }}
                                 </a>
                             </strong>
                             <div class="Card-description">{{ discount.product.description }}</div>

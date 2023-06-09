@@ -79,7 +79,7 @@ class UserRegisterForm(UserCreationForm):
             "email": "",
         }
         widgets = {
-            "email": forms.EmailInput(attrs={"placeholder": "E-mail"}),
+            "email": forms.EmailInput(attrs={"placeholder": "Email"}),
         }
 
 

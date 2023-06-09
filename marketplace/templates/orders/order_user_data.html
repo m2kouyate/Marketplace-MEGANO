@@ -1,4 +1,5 @@
 {% extends "orders/order_base.html" %}
+{% load i18n %}
 {% load static %}
 
 {% block order_step %}
@@ -7,7 +8,7 @@
     {% csrf_token %}
     <div class="Order-block Order-block_OPEN" id="step1">
         <header class="Section-header Section-header_sm">
-            <h2 class="Section-title">Шаг 1. Параметры пользователя
+            <h2 class="Section-title">{% trans "Шаг 1. Параметры пользователя" %}
             </h2>
         </header>
         <div class="row">
@@ -17,33 +18,33 @@
             {% if not user.is_authenticated %}
                 <div class="row-block">
                     <div class="form-group">
-                        <label class="form-label" for="password">Пароль
+                        <label class="form-label" for="password">{% trans "Пароль" %}
                         </label>
                         <input class="form-input" id="password" name="password" type="password" data-validate="require"
                                placeholder="Введите ваш пароль"/>
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="passwordReply">Подтверждение пароля
+                        <label class="form-label" for="passwordReply">{% trans "Подтверждение пароля" %}
                         </label>
                         <input class="form-input" id="passwordReply" name="passwordReply" type="password"
                                data-validate="require" placeholder="Введите пароль повторно"/>
                     </div>
-                    <div class="form-group"><a class="btn btn_muted Order-btnReg" href="{% url 'app_users:login' %}">Я уже зарегистрирован</a>
+                    <div class="form-group"><a class="btn btn_muted Order-btnReg" href="{% url 'app_users:login' %}">{% trans "Я уже зарегистрирован" %}</a>
                     </div>
                 </div>
             {% endif %}
         </div>
         {% if request.user.is_authenticated %}
-            <div class="Order-footer"><button class="btn btn_success" type="submit">Дальше</button>
+            <div class="Order-footer"><button class="btn btn_success" type="submit">{% trans "Дальше" %}</button>
             </div>
         {% else %}
-            <div class="Order-footer"><button class="btn btn_success" type="submit">Зарегистрироваться</button>
+            <div class="Order-footer"><button class="btn btn_success" type="submit">{% trans "Зарегистрироваться" %}</button>
             </div>
         {% endif %}
     </div>
     </form>
     {% else %}
-        <h2 class="Section-title">Ваша корзина пуста. <a href="{% url 'pages:catalog-view' %}">Продолжить покупки.</a></h2>
+        <h2 class="Section-title">{% trans "Ваша корзина пуста" %}. <a href="{% url 'pages:catalog-view' %}">{% trans "Продолжить покупки" %}.</a></h2>
         <div align="center">
             <img src="{% static 'assets/img/content/home/empty_order.svg'%}" alt="empty_order" style="max-width: 350px"/>
         </div>

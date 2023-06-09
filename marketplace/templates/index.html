@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %}
         <div class="Header-slider">
@@ -16,7 +17,7 @@
                         </strong>
                         <div class="Slider-text">{{ banner.description|truncatechars:100 }}
                         </div>
-                        <div class="Slider-footer"><a class="btn btn_primary" href="{{ banner.link }}">Get Started</a>
+                        <div class="Slider-footer"><a class="btn btn_primary" href="{{ banner.link }}">{% trans "Начать" %}</a>
                         </div>
                       </div>
                       <div class="row-block">

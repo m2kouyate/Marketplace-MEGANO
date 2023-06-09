@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block content %}
@@ -8,19 +9,19 @@
                 <div class="Section-column">
                     <div class="Section-columnSection">
                         <header class="Section-header">
-                            <strong class="Section-title">Навигация
+                            <strong class="Section-title">{% trans "Навигация" %}
                             </strong>
                         </header>
                         <div class="Section-columnContent">
                             <div class="NavigateProfile">
                                 <ul class="menu menu_vt">
-                                    <li class="menu-item_ACTIVE menu-item"><a class="menu-link" href="{% url "app_users:account" user.username %}">Личный кабинет</a>
+                                    <li class="menu-item_ACTIVE menu-item"><a class="menu-link" href="{% url "app_users:account" user.username %}">{% trans "Личный кабинет" %}</a>
                                     </li>
-                                    <li class="menu-item"><a class="menu-link" href="{% url "app_users:profile_edit" user.username %}">Профиль</a>
+                                    <li class="menu-item"><a class="menu-link" href="{% url "app_users:profile_edit" user.username %}">{% trans "Профиль" %}</a>
                                     </li>
-                                    <li class="menu-item"><a class="menu-link" href="{% url "app_users:orders_history" %}">История заказов</a>
+                                    <li class="menu-item"><a class="menu-link" href="{% url "app_users:orders_history" %}">{% trans "История заказов" %}</a>
                                     </li>
-                                    <li class="menu-item"><a class="menu-link" href="{% url "app_users:views_history" user.username %}">История просмотра</a>
+                                    <li class="menu-item"><a class="menu-link" href="{% url "app_users:views_history" user.username %}">{% trans "История просмотра" %}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -37,11 +38,11 @@
                             </div>
                             <div class="Account-column">
                                 <div class="Account-name">{{ user.profile.full_name }}
-                                </div><a class="Account-editLink" href="{% url "app_users:profile_edit" user.username %}">Редактировать профиль</a>
+                                </div><a class="Account-editLink" href="{% url "app_users:profile_edit" user.username %}">{% trans "Редактировать профиль" %}</a>
                             </div>
                         </div>
                         <header class="Section-header">
-                        <strong class="Section-title">Последний заказ
+                        <strong class="Section-title">{% trans "Последний заказ" %}
                         </strong>
                         </header>
                         <div class="Account-group">
@@ -50,37 +51,37 @@
                                     <div class="Order Order_anons">
                                         <div class="Order-personal">
                                             <div class="row">
-                                                <div class="row-block"><a class="Order-title" href="{% url "app_users:order_detail" last_order.id %}">Заказ&#32;<span class="Order-numberOrder">№{{ last_order.pk }}</span>&#32;от&#32;<span class="Order-dateOrder">{{ last_order.order_date|date:"d.m.Y" }}</span></a>
-                                                    <div class="Account-editLink"><a href="{% url "app_users:orders_history" %}">История заказов</a>
+                                                <div class="row-block"><a class="Order-title" href="{% url "app_users:order_detail" last_order.id %}">{% trans "Заказ" %}&#32;<span class="Order-numberOrder">№{{ last_order.pk }}</span>&#32;{% trans "от" %}&#32;<span class="Order-dateOrder">{{ last_order.order_date|date:"d.m.Y" }}</span></a>
+                                                    <div class="Account-editLink"><a href="{% url "app_users:orders_history" %}">{% trans "История заказов" %}</a>
                                                     </div>
                                                 </div>
                                                 <div class="row-block">
                                                     <div class="Order-info Order-info_delivery">
-                                                        <div class="Order-infoType">Тип доставки:
+                                                        <div class="Order-infoType">{% trans "Тип доставки" %}:
                                                         </div>
                                                         <div class="Order-infoContent">{{ last_order.delivery_type }}
                                                         </div>
                                                     </div>
                                                     <div class="Order-info Order-info_pay">
-                                                        <div class="Order-infoType">Оплата:
+                                                        <div class="Order-infoType">{% trans "Оплата" %}:
                                                         </div>
                                                         <div class="Order-infoContent">{{ last_order.payment }}
                                                         </div>
                                                     </div>
                                                     <div class="Order-info">
-                                                        <div class="Order-infoType">Общая стоимость:
+                                                        <div class="Order-infoType">{% trans "Общая стоимость" %}:
                                                         </div>
-                                                        <div class="Order-infoContent">{{ last_order_cost }} рублей
+                                                        <div class="Order-infoContent">{{ last_order_cost }} $
                                                         </div>
                                                     </div>
                                                     <div class="Order-info Order-info_status">
-                                                        <div class="Order-infoType">Статус оплаты:
+                                                        <div class="Order-infoType">{% trans "Статус оплаты" %}:
                                                         </div>
                                                         <div class="Order-infoContent">{{ last_order.get_payment_status_display }}
                                                         </div>
                                                     </div>
                                                     <div class="Order-info Order-info_status">
-                                                        <div class="Order-infoType">Статус доставки:
+                                                        <div class="Order-infoType">{% trans "Статус доставки" %}:
                                                         </div>
                                                         <div class="Order-infoContent">{{ last_order.get_order_status_display }}
                                                         </div>
@@ -93,9 +94,9 @@
                             {% endif %}
                         </div>
                         <header class="Section-header">
-                        <strong class="Section-title">Последние просмотренные товары
+                        <strong class="Section-title">{% trans "Последние просмотренные товары" %}
                         </strong>
-                            <div class="Account-editLink"><a href="{% url "app_users:views_history" user.username %}">История просмотра</a>
+                            <div class="Account-editLink"><a href="{% url "app_users:views_history" user.username %}">{% trans "История просмотра" %}</a>
                             </div>
                         </header>
                         <div class="Account-group">

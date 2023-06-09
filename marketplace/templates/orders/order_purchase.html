@@ -1,4 +1,5 @@
 {% extends 'orders/order_base.html' %}
+{% load i18n %}
 {% load static %}
 {% load product_discount_tags %}
 
@@ -8,7 +9,7 @@
     {% if request.session.user_data.payment_data %}
         <div class="Order-block Order-block_OPEN" id="step4">
             <header class="Section-header Section-header_sm">
-                <h2 class="Section-title">Шаг 4. Подтверждение заказа
+                <h2 class="Section-title">{% trans "Шаг 4. Подтверждение заказа" %}
                 </h2>
             </header>
             <!--+div.Order.-confirmation-->
@@ -17,19 +18,19 @@
                     <div class="row">
                         <div class="row-block">
                             <div class="Order-info">
-                                <div class="Order-infoType">ФИО:
+                                <div class="Order-infoType">{% trans "ФИО" %}:
                                 </div>
                                 <div class="Order-infoContent">{{ request.session.user_data.name.0 }}
                                 </div>
                             </div>
                             <div class="Order-info">
-                                <div class="Order-infoType">Телефон:
+                                <div class="Order-infoType">{% trans "Телефон" %}:
                                 </div>
                                 <div class="Order-infoContent">{{ request.session.user_data.phone.0 }}
                                 </div>
                             </div>
                             <div class="Order-info">
-                                <div class="Order-infoType">E-mail:
+                                <div class="Order-infoType">Email:
                                 </div>
                                 <div class="Order-infoContent">{{ request.session.user_data.mail.0 }}
                                 </div>
@@ -37,25 +38,25 @@
                         </div>
                         <div class="row-block">
                             <div class="Order-info Order-info_delivery">
-                                <div class="Order-infoType">Тип доставки:
+                                <div class="Order-infoType">{% trans "Тип доставки" %}:
                                 </div>
                                 <div class="Order-infoContent">{{ request.session.user_data.delivery_data.delivery.0 }}
                                 </div>
                             </div>
                             <div class="Order-info">
-                                <div class="Order-infoType">Город:
+                                <div class="Order-infoType">{% trans "Город" %}:
                                 </div>
                                 <div class="Order-infoContent">{{ request.session.user_data.delivery_data.city.0 }}
                                 </div>
                             </div>
                             <div class="Order-info">
-                                <div class="Order-infoType">Адрес:
+                                <div class="Order-infoType">{% trans "Адрес" %}:
                                 </div>
                                 <div class="Order-infoContent">{{ request.session.user_data.delivery_data.address.0 }}
                                 </div>
                             </div>
                             <div class="Order-info Order-info_pay">
-                                <div class="Order-infoType">Оплата:
+                                <div class="Order-infoType">{% trans "Оплата" %}:
                                 </div>
                                 <div class="Order-infoContent">{{ request.session.user_data.payment_data.pay.0 }}
                                 </div>
@@ -97,11 +98,11 @@
                     {% endfor %}
                     <div class="Cart-total">
                         <div class="Cart-block Cart-block_total">
-                            <strong class="Cart-title">Итого:
+                            <strong class="Cart-title">{% trans "Итого" %}:
                             </strong><span class="Cart-price">{{ total_price }}</span>
                         </div>
                         <div class="Cart-block">
-                            <button class="btn btn_primary btn_lg" type="submit">Оплатить
+                            <button class="btn btn_primary btn_lg" type="submit">{% trans "Оплатить" %}
                             </button>
                         </div>
                     </div>
@@ -110,7 +111,7 @@
         </div>
     {% else %}
         <div align="center">
-            <h2 class="Section-title">Заполните информацию на <a href="{% url 'pages:order-step-3' %}">шаге 3</a>, пожалуйста!</h2>
+            <h2 class="Section-title">{% trans "Заполните информацию на" %} <a href="{% url 'pages:order-step-3' %}">{% trans "шаге 3" %}</a>, {% trans "пожалуйста" %}!</h2>
             <img src="{% static 'assets/img/content/home/bad_order.jpg' %}" alt="bad_order" style="max-width: 700px; width: 100%"/>
         </div>
     {% endif %}

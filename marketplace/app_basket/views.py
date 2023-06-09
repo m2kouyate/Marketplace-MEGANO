@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: utf8 -*-
 
 from app_merch.models import Offer, Discount
 from django.http import HttpResponseRedirect

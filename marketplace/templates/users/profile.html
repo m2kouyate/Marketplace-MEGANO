@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block content %}
@@ -8,19 +9,19 @@
                 <div class="Section-column">
                     <div class="Section-columnSection">
                         <header class="Section-header">
-                            <strong class="Section-title">Навигация
+                            <strong class="Section-title">{% trans "Навигация" %}
                             </strong>
                         </header>
                         <div class="Section-columnContent">
                             <div class="NavigateProfile">
                                 <ul class="menu menu_vt">
-                                    <li class="menu-item"><a class="menu-link" href="{% url "app_users:account" user.username %}">Личный кабинет</a>
+                                    <li class="menu-item"><a class="menu-link" href="{% url "app_users:account" user.username %}">{% trans "Личный кабинет" %}</a>
                                     </li>
-                                    <li class="menu-item_ACTIVE menu-item"><a class="menu-link" href="{% url "app_users:profile_edit" user.username %}">Профиль</a>
+                                    <li class="menu-item_ACTIVE menu-item"><a class="menu-link" href="{% url "app_users:profile_edit" user.username %}">{% trans "Профиль" %}</a>
                                     </li>
-                                    <li class="menu-item"><a class="menu-link" href="{% url "app_users:orders_history" %}">История заказов</a>
+                                    <li class="menu-item"><a class="menu-link" href="{% url "app_users:orders_history" %}">{% trans "История заказов" %}</a>
                                     </li>
-                                    <li class="menu-item"><a class="menu-link" href="{% url "app_users:views_history" user.username %}">История просмотра</a>
+                                    <li class="menu-item"><a class="menu-link" href="{% url "app_users:views_history" user.username %}">{% trans "История просмотра" %}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -34,17 +35,17 @@
                             <div class="row">
                                 <div class="row-block">
                                     <div class="form-group">
-                                        <label class="form-label" for="avatar">Аватар
+                                        <label class="form-label" for="avatar">% trans "Аватар" %}
                                         </label>
                                         <div class="Profile-avatar Profile-avatar_noimg">
-                                            <label class="Profile-fileLabel" for="avatar"><img src="{% static 'assets/img/icons/upload.png' %}" alt="#.png" />Загрузить фото
+                                            <label class="Profile-fileLabel" for="avatar"><img src="{% static 'assets/img/icons/upload.png' %}" alt="#.png" />% trans "Загрузить фото" %}
                                             </label>
                                             {{ user_data_form.avatar.errors }}
                                             {{ user_data_form.avatar }}
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-label" for="name">ФИО
+                                        <label class="form-label" for="name">% trans "ФИО" %}
                                         </label>
                                         {{ user_data_form.full_name.errors }}
                                         {{ user_data_form.full_name }}
@@ -52,33 +53,33 @@
                                 </div>
                                 <div class="row-block">
                                     <div class="form-group">
-                                        <label class="form-label" for="phone">Телефон
+                                        <label class="form-label" for="phone">% trans "Телефон" %}
                                         </label>
                                         {{ user_data_form.phone }}
                                         {{ user_data_form.phone.errors }}
 
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-label" for="mail">E-mail
+                                        <label class="form-label" for="mail">Email
                                         </label>
                                         {{ user_data_form.mail.errors }}
                                         {{ user_data_form.mail }}
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-label" for="new_password1">Пароль
+                                        <label class="form-label" for="new_password1">% trans "Пароль" %}
                                         </label>
                                         {{ user_data_form.new_password1.errors }}
                                         {{ user_data_form.new_password1 }}
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-label" for="new_password2">Подтверждение пароля
+                                        <label class="form-label" for="new_password2">% trans "Подтверждение пароля" %}
                                         </label>
                                         {{ user_data_form.new_password2.errors }}
                                         {{ user_data_form.new_password2 }}
                                     </div>
                                     <div class="form-group">
                                         <div class="Profile-btn">
-                                            <button class="btn btn_success" type="submit">Сохранить
+                                            <button class="btn btn_success" type="submit">% trans "Сохранить" %}
                                             </button>
                                         </div>
                                     </div>

@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: utf8 -*-
 from .cart import CartService
 from app_merch.discount_service import DiscountService
 

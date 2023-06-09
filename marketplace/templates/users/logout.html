@@ -1,9 +1,10 @@
 {% extends 'base_mini.html' %}
+{% load i18n %}
 
 {% block main %}
 <div class="header">
-    <h3 class="sign-in">Выход из системы</h3>
+    <h3 class="sign-in">{% trans "Выход из системы" %}</h3>
 </div>
-<p>Вы успешно вышли из системы.</p>
-<p><a href="{% url 'app_users:login' %}">Войти</a> снова.</p>
+<p>{% trans "Вы успешно вышли из системы" %}.</p>
+<p><a href="{% url 'app_users:login' %}">{% trans "Войти" %}</a> {% trans "снова" %}.</p>
 {% endblock %}

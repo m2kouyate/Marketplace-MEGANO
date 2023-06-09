@@ -1,4 +1,5 @@
 {% extends 'orders/order_base.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block order_step %}
@@ -7,7 +8,7 @@
     {% if request.session.user_data %}
     <div class="Order-block Order-block_OPEN" id="step2">
         <header class="Section-header Section-header_sm">
-            <h2 class="Section-title">Шаг 2. Способ доставки
+            <h2 class="Section-title">{% trans "Шаг 2. Способ доставки" %}
             </h2>
         </header>
         <div class="form-group">
@@ -39,12 +40,12 @@
         </div>
         <div class="form-group">
             {{ form.as_p }}
-        <div class="Order-footer"><button type="submit" class="btn btn_success">Дальше</button>
+        <div class="Order-footer"><button type="submit" class="btn btn_success">{% trans "Дальше" %}</button>
         </div>
     </div>
     {% else %}
         <div align="center">
-            <h2 class="Section-title">Заполните информацию на <a href="{% url 'pages:order-step-1' %}">шаге 1</a>, пожалуйста!</h2>
+            <h2 class="Section-title">{% trans "Заполните информацию на" %} <a href="{% url 'pages:order-step-1' %}">{% trans "шаге 1" %}</a>, {% trans "пожалуйста" %}!</h2>
             <img src="{% static 'assets/img/content/home/bad_order.jpg' %}" alt="bad_order" style="max-width: 700px; width: 100%"/>
         </div>
     {% endif %}

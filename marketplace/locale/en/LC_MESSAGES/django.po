@@ -1,0 +1,596 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-08 11:35+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: templates/cart.html:23 templates/products/product_detail.html:52
+#: templates/products/product_detail.html:162
+#: templates/products/product_detail.html:210
+msgid "Продавец"
+msgstr "Seller"
+
+#: templates/cart.html:28
+msgid "Цена за ед."
+msgstr "Unit price"
+
+#: templates/cart.html:52
+msgid "Изменить"
+msgstr "Change"
+
+#: templates/cart.html:59
+msgid "Сумма за"
+msgstr "Amount per"
+
+#: templates/cart.html:59
+msgid "шт"
+msgstr "piece"
+
+#: templates/cart.html:70 templates/orders/order_purchase.html:101
+#: templates/users/oneorder.html:125
+msgid "Итого"
+msgstr "Total"
+
+#: templates/cart.html:74
+msgid "Скидка на корзину"
+msgstr "Cart discount"
+
+#: templates/cart.html:77
+msgid "Скидка на набор"
+msgstr "Set discount"
+
+#: templates/cart.html:80 templates/discounts/discount_detail.html:8
+#: templates/products/product_detail.html:47
+msgid "Скидка"
+msgstr "Discount"
+
+#: templates/cart.html:85
+msgid "Сумма со скидкой"
+msgstr "Discounted amount"
+
+#: templates/cart.html:90
+msgid "Оформить заказ "
+msgstr "Make an order"
+
+#: templates/cart.html:95 templates/orders/order_user_data.html:47
+msgid "Ваша корзина пуста"
+msgstr "Your basket is empty"
+
+#: templates/cart.html:95 templates/orders/order_user_data.html:47
+msgid "Продолжить покупки"
+msgstr "Continue shopping"
+
+#: templates/catalog.html:15 templates/catalog.html:46
+msgid "Фильтр"
+msgstr "Filter"
+
+#: templates/catalog.html:23
+msgid "Цена"
+msgstr "Price"
+
+#: templates/catalog.html:30
+msgid "Название"
+msgstr "Name"
+
+#: templates/catalog.html:37
+msgid "Только товары в наличии"
+msgstr "In stock"
+
+#: templates/catalog.html:42
+msgid "С бесплатной доставкой"
+msgstr "Free shipping"
+
+#: templates/catalog.html:55
+msgid "Популярные тэги"
+msgstr "Popular tags"
+
+#: templates/catalog.html:69
+msgid "Сортировать по"
+msgstr "Sort by"
+
+#: templates/catalog.html:83
+msgid "Популярности"
+msgstr "popularity"
+
+#: templates/catalog.html:95
+msgid "Цене"
+msgstr "Price"
+
+#: templates/catalog.html:107
+msgid "Отзывам"
+msgstr "Feedback"
+
+#: templates/catalog.html:118
+msgid "Новизне"
+msgstr "Novelty"
+
+#: templates/catalog.html:121
+msgid "Сбросить"
+msgstr "Reset"
+
+#: templates/discounts/discount_detail.html:14
+msgid "детали скидки"
+msgstr "discount details"
+
+#: templates/discounts/discount_detail.html:16
+msgid "Описание продукта"
+msgstr "Product description"
+
+#: templates/discounts/discount_detail.html:20
+msgid "Скидка действует на"
+msgstr "The discount is valid for"
+
+#: templates/discounts/discount_detail.html:31
+#: templates/discounts/discount_detail.html:100
+#: templates/products/comparison.html:35
+msgid "Характеристика"
+msgstr "Characteristic"
+
+#: templates/discounts/discount_detail.html:33
+#: templates/discounts/discount_detail.html:101
+#: templates/products/comparison.html:36
+msgid "Значение"
+msgstr "Value"
+
+#: templates/discounts/discount_detail.html:37
+msgid "Размер скидки"
+msgstr "Discount size"
+
+#: templates/discounts/discount_detail.html:43
+msgid "Начало скидки"
+msgstr "From"
+
+#: templates/discounts/discount_detail.html:49
+msgid "Окончание скидки"
+msgstr "To"
+
+#: templates/discounts/discount_detail.html:55
+msgid "Описание скидки"
+msgstr "Discount description"
+
+#: templates/discounts/discount_detail.html:78
+msgid "Средняя цена без скидки"
+msgstr "Average price without discount"
+
+#: templates/discounts/discount_detail.html:82
+msgid "Средняя цена с учетом скидки"
+msgstr "Average price with discount"
+
+#: templates/discounts/discount_detail.html:84
+msgid "скидка"
+msgstr "discount"
+
+#: templates/discounts/discount_detail.html:88
+#: templates/products/product_detail.html:101 templates/seller.html:35
+msgid "Описание"
+msgstr "Description"
+
+#: templates/discounts/list_discounts.html:45
+msgid "скидки"
+msgstr "discount"
+
+#: templates/discounts/list_discounts.html:46
+msgid "Купон"
+msgstr "Coupon"
+
+#: templates/discounts/list_discounts.html:47
+msgid "на"
+msgstr "for"
+
+#: templates/includes/footer.html:9 templates/users/account.html:12
+#: templates/users/historyorder.html:12 templates/users/historyview.html:12
+msgid "Навигация"
+msgstr "Navigation"
+
+#: templates/includes/footer.html:12 templates/includes/header.html:54
+#: templates/orders/payment.html:13 templates/orders/payment_progress.html:13
+msgid "Главная"
+msgstr "Home"
+
+#: templates/includes/footer.html:14 templates/includes/header.html:56
+msgid "Каталог"
+msgstr "Catalog"
+
+#: templates/includes/footer.html:16 templates/includes/header.html:62
+msgid "Сравнение"
+msgstr "Comparison"
+
+#: templates/includes/footer.html:18 templates/users/account.html:20
+#: templates/users/historyorder.html:20 templates/users/historyview.html:20
+msgid "Профиль"
+msgstr "Profile"
+
+#: templates/includes/footer.html:24
+msgid "Контакты"
+msgstr "Contacts"
+
+#: templates/includes/header.html:28 templates/users/login.html:7
+#: templates/users/password_reset.html:32 templates/users/register.html:35
+msgid "Вход"
+msgstr "Login"
+
+#: templates/includes/header.html:29 templates/users/login.html:21
+#: templates/users/register.html:20
+msgid "Регистрация"
+msgstr "Registration"
+
+#: templates/includes/header.html:56 templates/includes/header.html:60
+msgid "Скидки"
+msgstr "Discount"
+
+#: templates/includes/header.html:58
+msgid "Предложения"
+msgstr "Offers"
+
+#: templates/includes/header.html:65
+msgid "Импорты"
+msgstr "Imports"
+
+#: templates/includes/header.html:78 templates/users/account.html:18
+#: templates/users/historyorder.html:18 templates/users/historyview.html:18
+msgid "Личный кабинет"
+msgstr "My account"
+
+#: templates/includes/header.html:79
+msgid "Административный раздел"
+msgstr "Administrative section"
+
+#: templates/includes/header.html:80
+msgid "Выход"
+msgstr "Logout"
+
+#: templates/includes/header.html:89
+msgid "Показать навигацию"
+msgstr "Show navigation"
+
+#: templates/includes/header.html:101
+msgid "Все категории"
+msgstr "All categories"
+
+#: templates/includes/header.html:131
+msgid "Поиск"
+msgstr "Search"
+
+#: templates/index.html:20
+msgid "Начать"
+msgstr "Get started"
+
+#: templates/orders/order_base.html:13
+msgid "Прогресс заполнения"
+msgstr "Fill progress"
+
+#: templates/orders/order_base.html:19 templates/orders/order_user_data.html:11
+msgid "Шаг 1. Параметры пользователя"
+msgstr "Step 1: User options"
+
+#: templates/orders/order_base.html:21 templates/orders/order_delivery.html:11
+msgid "Шаг 2. Способ доставки"
+msgstr "Step 2. Shipping method"
+
+#: templates/orders/order_base.html:23 templates/orders/order_payment.html:11
+msgid "Шаг 3. Способ оплаты"
+msgstr "Step 3. Payment method"
+
+#: templates/orders/order_base.html:25 templates/orders/order_purchase.html:12
+msgid "Шаг 4. Подтверждение заказа"
+msgstr "Step 4. Order confirmation"
+
+#: templates/orders/order_delivery.html:43
+#: templates/orders/order_payment.html:42
+#: templates/orders/order_user_data.html:38
+msgid "Дальше"
+msgstr "Next"
+
+#: templates/orders/order_delivery.html:48
+#: templates/orders/order_payment.html:47
+#: templates/orders/order_purchase.html:114
+msgid "Заполните информацию на"
+msgstr "Fill in the information for"
+
+#: templates/orders/order_delivery.html:48
+msgid "шаге 1"
+msgstr "step 1"
+
+#: templates/orders/order_delivery.html:48
+#: templates/orders/order_payment.html:47
+#: templates/orders/order_purchase.html:114
+msgid "пожалуйста"
+msgstr "please"
+
+#: templates/orders/order_payment.html:47
+msgid "шаге 2"
+msgstr "step 2"
+
+#: templates/orders/order_purchase.html:21 templates/users/oneorder.html:32
+msgid "ФИО"
+msgstr "Full name"
+
+#: templates/orders/order_purchase.html:27 templates/seller.html:42
+#: templates/users/oneorder.html:38
+msgid "Телефон"
+msgstr "Phone"
+
+#: templates/orders/order_purchase.html:41 templates/users/account.html:60
+#: templates/users/historyorder.html:41 templates/users/oneorder.html:52
+msgid "Тип доставки"
+msgstr "Delivery type"
+
+#: templates/orders/order_purchase.html:47 templates/users/oneorder.html:64
+msgid "Город"
+msgstr "City"
+
+#: templates/orders/order_purchase.html:53 templates/seller.html:52
+#: templates/users/oneorder.html:70
+msgid "Адрес"
+msgstr "Address"
+
+#: templates/orders/order_purchase.html:59 templates/orders/payment.html:10
+#: templates/orders/payment.html:15 templates/users/account.html:66
+#: templates/users/oneorder.html:76
+msgid "Оплата"
+msgstr "Payment"
+
+#: templates/orders/order_purchase.html:105 templates/orders/payment.html:32
+#: templates/users/oneorder.html:129
+msgid "Оплатить"
+msgstr "Pay"
+
+#: templates/orders/order_purchase.html:114
+msgid "шаге 3"
+msgstr "step 3"
+
+#: templates/orders/order_user_data.html:21
+msgid "Пароль"
+msgstr "Password"
+
+#: templates/orders/order_user_data.html:27
+msgid "Подтверждение пароля"
+msgstr "Password confirmation"
+
+#: templates/orders/order_user_data.html:32
+msgid "Я уже зарегистрирован"
+msgstr "I'm already registered"
+
+#: templates/orders/order_user_data.html:41 templates/users/register.html:33
+msgid "Зарегистрироваться"
+msgstr "Register"
+
+#: templates/orders/payment.html:29
+msgid "Сгенирировать случайный счет"
+msgstr "Generate random bill"
+
+#: templates/orders/payment_progress.html:10
+#: templates/orders/payment_progress.html:15
+msgid "Ожидание оплаты"
+msgstr "Waiting for payment"
+
+#: templates/orders/payment_progress.html:24
+msgid "Ждем подтверждения оплаты платежной системой"
+msgstr "We are waiting for confirmation of payment by the payment system"
+
+#: templates/products/all_product_discounts.html:21
+#: templates/products/product_detail.html:103
+msgid "Отзывы"
+msgstr "Reviews"
+
+#: templates/products/comparison.html:12
+msgid "В сравнении товары из разных категорий"
+msgstr "Compare products from different categories"
+
+#: templates/products/comparison.html:13
+msgid "Их нельзя сравнить"
+msgstr "They can't be compared"
+
+#: templates/products/comparison.html:39
+#: templates/products/import-products.html:57 templates/users/logout.html:9
+#: templates/users/password_reset_done.html:7
+msgid "снова"
+msgstr "again"
+
+#: templates/products/comparison.html:72
+msgid "Добавить в корзину"
+msgstr "Add to Basket"
+
+#: templates/products/comparison.html:78
+msgid "Удалить из сравнения"
+msgstr "Remove from comparison"
+
+#: templates/products/comparison.html:93
+msgid "Очистить сравнение"
+msgstr "Clear comparison"
+
+#: templates/products/import-products.html:40
+msgid "Успешный импорт"
+msgstr "Successful Import"
+
+#: templates/products/import-products.html:50
+msgid "Импорт продуктов"
+msgstr "Import products"
+
+#: templates/products/import-products.html:59
+msgid "Загрузить"
+msgstr "Download"
+
+#: templates/products/import-products.html:61
+msgid "Пример.json"
+msgstr "Example.json"
+
+#: templates/products/product_detail.html:53
+msgid "Без скидки"
+msgstr "Without discount"
+
+#: templates/products/product_detail.html:54
+msgid "Со скидкой"
+msgstr "With discount"
+
+#: templates/products/product_detail.html:76
+msgid "Купить"
+msgstr "Buy"
+
+#: templates/products/product_detail.html:82
+msgid "Нет доступных предложений"
+msgstr "No offers available"
+
+#: templates/products/product_detail.html:90
+msgid "Тэги"
+msgstr "Tags"
+
+#: templates/products/product_detail.html:102
+msgid "Характеристики"
+msgstr "Characteristics"
+
+#: templates/products/product_detail.html:192
+msgid "Комментарий"
+msgstr "Comment"
+
+#: templates/products/product_detail.html:198
+msgid "Пока нет отзывов"
+msgstr "No reviews yet"
+
+#: templates/products/product_detail.html:202
+msgid "Добавить отзыв"
+msgstr "Add review"
+
+#: templates/products/product_detail.html:220
+msgid "Отправить отзыв"
+msgstr "Post review"
+
+#: templates/products/product_detail.html:225
+msgid "Вы должны сначала"
+msgstr "You must first"
+
+#: templates/products/product_detail.html:226
+msgid "войти"
+msgstr "sign in"
+
+#: templates/products/product_detail.html:226
+msgid "чтобы оставить отзыв"
+msgstr "to leave a review."
+
+#: templates/seller.html:68
+msgid "Топ 10 товаров"
+msgstr "Top 10 products"
+
+#: templates/users/account.html:22 templates/users/account.html:55
+#: templates/users/historyorder.html:22 templates/users/historyview.html:22
+msgid "История заказов"
+msgstr "History of orders"
+
+#: templates/users/account.html:24 templates/users/account.html:99
+#: templates/users/historyorder.html:24 templates/users/historyview.html:24
+msgid "История просмотра"
+msgstr "Browsing history"
+
+#: templates/users/account.html:41
+msgid "Редактировать профиль"
+msgstr "Edit profile"
+
+#: templates/users/account.html:45
+msgid "Последний заказ"
+msgstr "Last order"
+
+#: templates/users/account.html:54 templates/users/historyorder.html:37
+#: templates/users/oneorder.html:10
+msgid "Заказ"
+msgstr "Order"
+
+#: templates/users/account.html:54 templates/users/historyorder.html:37
+msgid "от"
+msgstr "from"
+
+#: templates/users/account.html:72
+msgid "Общая стоимость"
+msgstr "Total cost"
+
+#: templates/users/account.html:78 templates/users/historyorder.html:59
+#: templates/users/oneorder.html:82
+msgid "Статус оплаты"
+msgstr "Payment State"
+
+#: templates/users/account.html:84 templates/users/historyorder.html:65
+#: templates/users/oneorder.html:88
+msgid "Статус доставки"
+msgstr "Delivery status"
+
+#: templates/users/account.html:97
+msgid "Последние просмотренные товары"
+msgstr "Last viewed products"
+
+#: templates/users/historyorder.html:47
+msgid "Тип Оплата"
+msgstr "Type Payment"
+
+#: templates/users/historyorder.html:53
+msgid "Тип Общая стоимость"
+msgstr "Type Total cost"
+
+#: templates/users/login.html:19
+msgid "Забыли пароль"
+msgstr "Forgot your password"
+
+#: templates/users/logout.html:6
+msgid "Выход из системы"
+msgstr "Log Out"
+
+#: templates/users/logout.html:8
+msgid "Вы успешно вышли из системы"
+msgstr "You have successfully logged out"
+
+#: templates/users/logout.html:9 templates/users/password_reset_done.html:12
+msgid "Войти"
+msgstr "Sign in"
+
+#: templates/users/oneorder.html:26
+msgid "Дата заказа"
+msgstr "Order date"
+
+#: templates/users/oneorder.html:58
+msgid "Дата отправки заказа"
+msgstr "Order dispatch date"
+
+#: templates/users/oneorder.html:94
+msgid "Дата доставки"
+msgstr "Delivery date"
+
+#: templates/users/password_reset.html:7
+#: templates/users/password_reset_confirm.html:7
+msgid "Восстановление пароля"
+msgstr "Password recovery"
+
+#: templates/users/password_reset.html:10
+msgid "Пожалуйста, исправьте следующие ошибки"
+msgstr "Please fix the following bugs"
+
+#: templates/users/password_reset.html:31
+msgid "Получить проверочный код"
+msgstr "Get verification code"
+
+#: templates/users/password_reset_complete.html:7
+msgid "Сброс пароля"
+msgstr "Password reset"
+
+#: templates/users/password_reset_complete.html:9
+msgid "Ваш пароль был успешно изменен"
+msgstr "Your password has been successfully changed"
+
+#: templates/users/password_reset_confirm.html:11
+msgid "Изменить пароль"
+msgstr "Change password"
+
+#: templates/users/register.html:31
+msgid "Загрузить аватар"
+msgstr "Upload avatar"

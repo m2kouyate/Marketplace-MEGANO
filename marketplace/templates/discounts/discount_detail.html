@@ -1,22 +1,23 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% block title %}DiscountDetail{% endblock %}
 
 {% block content %}
 
 <h1>
-  Скидка
+  {% trans "Скидка" %}
 </h1>
 
 <div class="Tabs Tabs_default">
     <div class="Tabs-links">
         <a class="Tabs-link_ACTIVE Tabs-link" href="#description">
-            <span>детали скидки</span>
+            <span>{% trans "детали скидки" %}</span>
         </a>
-        <a class="Tabs-link" href="#product"><span>Описание продукта</span></a>
+        <a class="Tabs-link" href="#product"><span>{% trans "Описание продукта" %}</span></a>
     </div>
     <div class="Tabs-wrap">
         <div class="Tabs-block" id="description">
-            <h2>Скидка действует на
+            <h2>{% trans "Скидка действует на" %}
                 <a href="{% url 'pages:product-detail' discount.product.pk %}">
                     {{ discount.product.title }}
                 </a>
@@ -27,31 +28,31 @@
             <div class="table">
                 <table>
                     <tr>
-                        <th>Характеристика
+                        <th>{% trans "Характеристика" %}
                         </th>
-                        <th>Значение
+                        <th>{% trans "Значение" %}
                         </th>
                     </tr>
                     <tr>
-                        <td>Размер скидки
+                        <td>{% trans "Размер скидки" %}
                         </td>
                         <td>{% if discount.is_percent %}{{ discount.size }}%{% else %}${{ discount.size }}{% endif %}
                         </td>
                     </tr>
                     <tr>
-                        <td>Начало скидки
+                        <td>{% trans "Начало скидки" %}
                         </td>
                         <td>{{ discount.start_date|date:"d F Y" }}
                         </td>
                     </tr>
                     <tr>
-                        <td>Окончание скидки
+                        <td>{% trans "Окончание скидки" %}
                         </td>
                         <td>{{ discount.end_date|date:"d F Y" }}
                         </td>
                     </tr>
                     <tr>
-                        <td>Описание скидки
+                        <td>{% trans "Описание скидки" %}
                         </td>
                         <td>{{ discount.description }}
                         </td>
@@ -74,17 +75,17 @@
                     <div class="ProductCard-cost">
                         <b><div>
                             {% if discount %}
-                                Средняя цена без скидки:
+                                {% trans "Средняя цена без скидки" %}:
                                 <del style="color: grey;">
                                     ${{ average_price|floatformat:2 }}
                                 </del><br/>
-                                Средняя цена с учетом скидки: ${{ average_with_discount|floatformat:2 }}
+                                {% trans "Средняя цена с учетом скидки" %}: ${{ average_with_discount|floatformat:2 }}
                             {% endif%}
-                        </div></b><span style="margin-left: 1px;">(скидка: {{ percentage_difference|floatformat:1 }} %)</span>
+                        </div></b><span style="margin-left: 1px;">({% trans "скидка" %}: {{ percentage_difference|floatformat:1 }} %)</span>
                     </div>
                 </div><br/>
                 <div>
-                    <p><b>Описание:</b> {{ discount.product.description }}</p>
+                    <p><b>{% trans "Описание" %}:</b> {{ discount.product.description }}</p>
                     {% if icon_url %}
                         <a href="{% url 'pages:product-detail' discount.product.pk %}">
                             <img class="pict pict_right" src="{{ icon_url }}" alt="{{ object.title }}" />
@@ -96,8 +97,8 @@
                     <div class="table">
                         <table>
                             <tr>
-                                <th>Характеристика</th>
-                                <th>Значение</th>
+                                <th>{% trans "Характеристика" %}</th>
+                                <th>{% trans "Значение" %}</th>
                             </tr>
                             {% for key, value in discount.product.characters.items %}
                             <tr>

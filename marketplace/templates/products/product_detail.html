@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load pluralize_reviews %}
 {% load product_tags %}
 
@@ -43,14 +44,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div><p>Скидка: {{ percentage_difference|floatformat:1 }} %</p></div>
+                            <div><p>{% trans "Скидка" %}: {{ percentage_difference|floatformat:1 }} %</p></div>
                             <div class="ProductCard-text">
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th>Продавец</th>
-                                            <th>Без скидки</th>
-                                            <th>Со скидкой</th>
+                                            <th>{% trans "Продавец" %}</th>
+                                            <th>{% trans "Без скидки" %}</th>
+                                            <th>{% trans "Со скидкой" %}</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -72,13 +73,13 @@
                                                     <div class="ProductCard-cartElement">
                                                     <a class="btn btn_primary"
                                                        href="{% url 'app_basket:add_to_cart'%}?offer_id={{offer.pk}}">
-                                                        <span class="btn-content">Купить</span></a>
+                                                        <span class="btn-content">{% trans "Купить" %}</span></a>
                                                     </div>
                                                 </td>
                                             </tr>
                                         {% empty %}
                                         <tr>
-                                            <td colspan="5">Нет доступных предложений</td>
+                                            <td colspan="5">{% trans "Нет доступных предложений" %}</td>
                                         </tr>
                                     {% endfor %}
                                     </tbody>
@@ -86,7 +87,7 @@
                             </div>
                             <div class="ProductCard-footer">
                                 <div class="ProductCard-tags">
-                                    <strong class="ProductCard-tagsTitle">Тэги:
+                                    <strong class="ProductCard-tagsTitle">{% trans "Тэги" %}:
                                     </strong>
                                     {% for tag in product.tags.all %}
                                     <a href="{% url 'pages:catalog-view' %}?tag={{ tag.pk }}">{{ tag.title }}
@@ -97,9 +98,9 @@
                     </div>
                     <div class="Tabs Tabs_default">
                         <div class="Tabs-links"><a class="Tabs-link_ACTIVE Tabs-link" href="#description">
-                            <span>Описание</span></a><a class="Tabs-link" href="#addit">
-                            <span>Характеристики</span></a><a class="Tabs-link" href="#reviews">
-                            <span>Отзывы ({{ review_count }})</span></a>
+                            <span>{% trans "Описание" %}</span></a><a class="Tabs-link" href="#addit">
+                            <span>{% trans "Характеристики" %}</span></a><a class="Tabs-link" href="#reviews">
+                            <span>{% trans "Отзывы" %} ({{ review_count }})</span></a>
                         </div>
                         <div class="Tabs-wrap">
                             <div class="Tabs-block" id="description">
@@ -144,7 +145,8 @@
                                         <div class="Comment-column Comment-column_pict">
                                           <div class="Comment-avatar">
                                               {% if review.profile.avatar %}
-                                                <img src="{{ review.profile.avatar.file.url }}" alt="Avatar" class="avatar-image">
+                                                <img src="{{ review.profile.avatar.file.url }}"
+                                                     alt="Avatar" class="avatar-image">
                                               {% else %}
 <!--                                                <img src="/static/assets/img/icons/user_icon.svg" alt="Default Avatar" class="avatar-image">-->
                                               {% endif %}
@@ -157,53 +159,55 @@
                                               <span class="Comment-date">
                                                   {{ review.created_at|date:"d F Y" }} / {{ review.created_at|time:"H:i:s" }}
                                               </span><br/>
-                                              <span class="Comment-content">Продавец: <a href="{% url 'app_users:seller_detail' review.offer.seller.pk %}">
-                                                    {{ review.offer.seller.title }}</a>
+                                              <span class="Comment-content">{% trans "Продавец" %}:
+                                                  <a href="{% url 'app_users:seller_detail' review.offer.seller.pk %}">
+                                                    {{ review.offer.seller.title }}
+                                                  </a>
                                               </span>
                                               <span class="Comment-content">
                                                   {% if review.rating == 1 %}
-                                                    <img src="/static/assets/img/icons/star.svg" alt="Star" class="star-image">
+                                                    <img src="/static/assets/img/icons/star.svg" alt="Star">
                                                   {% elif review.rating == 2 %}
-                                                      <img src="/static/assets/img/icons/star.svg" alt="Star" class="star-image">
-                                                      <img src="/static/assets/img/icons/star.svg" class="star-image">
+                                                      <img src="/static/assets/img/icons/star.svg" alt="Star">
+                                                      <img src="/static/assets/img/icons/star.svg" alt="Star">
                                                     {% elif review.rating == 3 %}
-                                                      <img src="/static/assets/img/icons/star.svg" class="star-image">
-                                                      <img src="/static/assets/img/icons/star.svg" class="star-image">
+                                                      <img src="/static/assets/img/icons/star.svg" alt="Star">
+                                                      <img src="/static/assets/img/icons/star.svg" alt="Star">
                                                       <img src="/static/assets/img/icons/star.svg" class="star-image">
                                                     {% elif review.rating == 4 %}
-                                                      <img src="/static/assets/img/icons/star.svg" alt="Star" class="star-image">
-                                                      <img src="/static/assets/img/icons/star.svg" class="star-image">
-                                                      <img src="/static/assets/img/icons/star.svg" class="star-image">
-                                                      <img src="/static/assets/img/icons/star.svg" class="star-image">
+                                                      <img src="/static/assets/img/icons/star.svg" alt="Star">
+                                                      <img src="/static/assets/img/icons/star.svg" alt="Star">
+                                                      <img src="/static/assets/img/icons/star.svg" alt="Star">
+                                                      <img src="/static/assets/img/icons/star.svg" alt="Star">
                                                     {% elif review.rating == 5 %}
-                                                      <img src="/static/assets/img/icons/star.svg" alt="Star" class="star-image">
-                                                      <img src="/static/assets/img/icons/star.svg" alt="Star" class="star-image">
-                                                      <img src="/static/assets/img/icons/star.svg" alt="Star" class="star-image">
-                                                      <img src="/static/assets/img/icons/star.svg" alt="Star" class="star-image">
-                                                      <img src="/static/assets/img/icons/star.svg" alt="Star" class="star-image">
+                                                      <img src="/static/assets/img/icons/star.svg" alt="Star">
+                                                      <img src="/static/assets/img/icons/star.svg" alt="Star">
+                                                      <img src="/static/assets/img/icons/star.svg" alt="Star">
+                                                      <img src="/static/assets/img/icons/star.svg" alt="Star">
+                                                      <img src="/static/assets/img/icons/star.svg" alt="Star">
                                                     {% endif %}
                                               </span>
                                             </div>
                                           </header>
-                                            <div class="Comment-content"><b>Комментарий:</b> {{ review.text }}</div>
+                                            <div class="Comment-content"><b>{% trans "Комментарий" %}:</b>
+                                                {{ review.text }}</div>
                                         </div>
                                       </div>
                                     {% endfor %}
                                   {% else %}
-                                    <p>Пока нет отзывов</p>
+                                    <p>{% trans "Пока нет отзывов" %}</p>
                                   {% endif %}
                                 </div>
                                 <header class="Section-header Section-header_product">
-                                    <h3 class="Section-title">Добавить отзыв
+                                    <h3 class="Section-title">{% trans "Добавить отзыв" %}
                                     </h3>
                                 </header>
                                 <div class="Tabs-addComment">
                                     {% if user.is_authenticated %}
-                                    <form class="form" action="#" method="post">
+                                    <form class="form" method="post">
 
                                         <div class="form-group">{% csrf_token %}
-<!--                                            <textarea class="form-textarea" name="review" id="review" placeholder="Отзыв"></textarea>-->
-                                            <label for="seller">Продавец:</label>
+                                            <label for="seller">{% trans "Продавец" %}:</label>
                                             <select name="seller" id="seller" required>
                                                 <option value="" selected disabled>---</option>
                                               {% for seller in sellers %}
@@ -213,12 +217,13 @@
                                         </div>
                                             {{ form.as_p }}
                                         <div class="form-group">
-                                            <button class="btn btn_muted" type="submit">Отправить отзыв
+                                            <button class="btn btn_muted" type="submit">{% trans "Отправить отзыв" %}
                                             </button>
                                         </div>
                                     </form>
                                     {% else %}
-                                        <p>Вы должны сначала <a href="{% url 'app_users:login' %}">войти,</a> чтобы оставить отзыв.</p>
+                                        <p>{% trans "Вы должны сначала" %} <a href="{% url 'app_users:login' %}">
+                                            {% trans "войти" %},</a> {% trans "чтобы оставить отзыв" %}.</p>
                                     {% endif %}
                                 </div>
                             </div>

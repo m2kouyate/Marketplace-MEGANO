@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load i18n %}
+
 {% load product_discount_tags %}
 {% load static %}
 {% load query_transformer_tags %}
@@ -10,7 +12,7 @@
                 <div class="Section-column">
                     <div class="Section-columnSection">
                         <header class="Section-header">
-                            <strong class="Section-title">Фильтр
+                            <strong class="Section-title">{% trans "Фильтр" %}
                             </strong>
                         </header>
                         <div class="Section-columnContent">
@@ -18,30 +20,30 @@
                                 <div class="form-group">
                                     <div class="range Section-columnRange">
                                         <input class="range-line" id="price" name="price" type="text" data-type="double" data-min="{{ min_price }}" data-max="{{ max_price }}" data-from="{% firstof curr_min_price min_price %}" data-to="{% firstof curr_max_price max_price %}" />
-                                        <div class="range-price">Цена:&#32;
+                                        <div class="range-price">{% trans "Цена" %}:&#32;
                                             <div class="rangePrice">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-input form-input_full" id="title" name="title" type="text" placeholder="Название" value="{{ title }}"/>
+                                    <input class="form-input form-input_full" id="title" name="title" type="text" placeholder='{% trans "Название" %}' value="{{ title }}"/>
                                 </div>
                                 <div class="form-group">
                                     <!-- - var options = setOptions(items, ['value', 'selected', 'disabled']);-->
                                 </div>
                                 <div class="form-group">
                                     <label class="toggle">
-                                        <input type="checkbox" {% if in_stock %} checked="checked" {% endif %}name="in_stock"/><span class="toggle-box"></span><span class="toggle-text">Только товары в наличии</span>
+                                        <input type="checkbox" {% if in_stock %} checked="checked" {% endif %}name="in_stock"/><span class="toggle-box"></span><span class="toggle-text">{% trans "Только товары в наличии" %}</span>
                                     </label>
                                 </div>
                                 <div class="form-group">
                                     <label class="toggle">
-                                        <input type="checkbox" {% if delivery_free %} checked="checked" {% endif %} name="delivery_free"/><span class="toggle-box"></span><span class="toggle-text">С бесплатной доставкой</span>
+                                        <input type="checkbox" {% if delivery_free %} checked="checked" {% endif %} name="delivery_free"/><span class="toggle-box"></span><span class="toggle-text">{% trans "С бесплатной доставкой" %}</span>
                                     </label>
                                 </div>
                                 <div class="form-group">
-                                    <div class="buttons"><button class="btn btn_square btn_dark btn_narrow" type="submit">Фильтр</button>
+                                    <div class="buttons"><button class="btn btn_square btn_dark btn_narrow" type="submit">{% trans "Фильтр" %}</button>
                                     </div>
                                 </div>
                                 <input type="text" name="cat" style="display: None" value="{% firstof category 'all' %}"/>
@@ -50,7 +52,7 @@
                     </div>
                     <div class="Section-columnSection">
                         <header class="Section-header">
-                            <strong class="Section-title">Популярные тэги
+                            <strong class="Section-title">{% trans "Популярные тэги" %}
                             </strong>
                         </header>
                         <div class="Section-columnContent">
@@ -64,7 +66,7 @@
                 </div>
                 <div class="Section-content">
                     <div class="Sort">
-                        <div class="Sort-title">Сортировать по:
+                        <div class="Sort-title">{% trans "Сортировать по" %}:
                         </div>
                         <div class="Sort-variants">
                             <a
@@ -78,7 +80,7 @@
                                         class="Sort-sortBy"
                                         href="?{% query_transform views_sort='desc' %}"
                                     {% endif %}
-                            >Популярности
+                            >{% trans "Популярности" %}
                             </a>
                             <a
                                     {% if price_sort == '-min_price' %}
@@ -90,7 +92,7 @@
                                     {% else %}
                                         class="Sort-sortBy"
                                         href="?{% query_transform price_sort='-min_price' %}"
-                                    {% endif %}>Цене
+                                    {% endif %}>{% trans "Цене" %}
                             </a>
                             <a
                                     {% if reviews_sort == 'desc' %}
@@ -102,7 +104,7 @@
                                     {% else %}
                                         class="Sort-sortBy"
                                         href="?{% query_transform reviews_sort='desc' %}"
-                                    {% endif %}>Отзывам</a>
+                                    {% endif %}>{% trans "Отзывам" %}</a>
                             <a
                                     {% if created_at_sort == '-created_at' %}
                                         class="Sort-sortBy Sort-sortBy_inc"
@@ -113,10 +115,10 @@
                                     {% else %}
                                         class="Sort-sortBy"
                                         href="?{% query_transform created_at_sort='-created_at' %}"
-                                    {% endif %}>Новизне
+                                    {% endif %}>{% trans "Новизне" %}
                             </a>
                             {% if any_sort %}
-                            <a style="font-size: 13px" href="{% url 'pages:catalog-view' %}">x Сбросить</a>
+                            <a style="font-size: 13px" href="{% url 'pages:catalog-view' %}">x {% trans "Сбросить" %}</a>
                             {% endif %}
                         </div>
                     </div>

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block content %}
@@ -19,12 +20,12 @@
                         </div>
                             <div class="Cart-block Cart-block_row">
                                 <div class="Cart-block Cart-block_seller">
-                                    <div class="Cart-desc">Продавец: {{cartitem.offer.seller}}</div>
+                                    <div class="Cart-desc">{% trans "Продавец" %}: {{cartitem.offer.seller}}</div>
                                 <!-- - var options = setOptions(items, ['value', 'selected', 'disabled']);-->
 
                                 </div>
                                 <div class="Cart-block Cart-block_price">
-                                <div class="Cart-desc">Цена за ед.</div>
+                                <div class="Cart-desc">{% trans "Цена за ед." %}</div>
                                 <div class="Cart-price">{{cartitem.price|floatformat:2}}&nbsp;₽</div>
                             </div>
                             <div class="Cart-block Cart-block_amount">
@@ -48,14 +49,14 @@
                                         <button style="font-size:2em; padding: 1px 8.5px;" type="button" onclick="this.nextElementSibling.stepDown()">-</button>
                                         <input name="amount" type="number" min="1" max="{{cartitem.offer.quantity}}" step="1" value="{{cartitem.quantity}}" class="raz"/>
                                         <button style="font-size:1.8em; padding: 1px 5.5px; "type="button" onclick="this.previousElementSibling.stepUp()">+</button>
-                                        <input style="background-color: #ebebeb; color: black; border: 1px solid red" type="submit" value="Изменить">
+                                        <input style="background-color: #ebebeb; color: black; border: 1px solid red" type="submit" value='{% trans "Изменить" %}'>
                                         <input type="hidden" name="cartitem_id" value="{{ cartitem.id }}">
                                         </form>
 
                                 </div>
                             </div>
                             <div class="Cart-block Cart-block_price">
-                                <div class="Cart-desc">Сумма за {{cartitem.quantity}} шт</div>
+                                <div class="Cart-desc">{% trans "Сумма за" %} {{cartitem.quantity}} {% trans "шт" %}</div>
                                 <div class="Cart-price">{{cartitem.total_price|floatformat:2}}&nbsp;₽</div>
                             </div>
                             <div class="Cart-block Cart-block_delete"><a class="Cart-delete" href="{% url 'app_basket:remove_from_cart' %}?cartitem_id={{cartitem.id}}"><img src="{% static '/assets/img/icons/card/delete.svg'%}" alt="delete.svg" /></a>
@@ -66,32 +67,32 @@
                     {% if cart_user %}
                     <div class="Cart-total">
                         <div class="Cart-block Cart-block_row">
-                            <strong class="Cart-title">Итого:</strong>
+                            <strong class="Cart-title">{% trans "Итого" %}:</strong>
                             <span class="Cart-price">{{price}} ₽</span>
                             <div class="Cart-price" style="width:5px"></div>
                             {% if discount_cart == True %}
-                            <strong class="Cart-title">Скидка на корзину:</strong>
-                            <span class="Cart-price">{{discount|floatformat:2}} ₽</span>
+                            <strong class="Cart-title">{% trans "Скидка на корзину" %}:</strong>
+                            <span class="Cart-price">{{discount|floatformat:2}} $</span>
                             {% elif discount_cart == False %}
-                            <strong class="Cart-title">Скидка на набор "{{discount.0}}":</strong>
-                            <span class="Cart-price">{{discount.1|floatformat:2}} ₽</span>
+                            <strong class="Cart-title">{% trans "Скидка на набор" %} "{{discount.0}}":</strong>
+                            <span class="Cart-price">{{discount.1|floatformat:2}} $</span>
                             {% elif not discount_cart %}
-                            <strong class="Cart-title">Скидка: </strong>
+                            <strong class="Cart-title">{% trans "Скидка" %}: </strong>
                             <span class="Cart-price">{{discount|floatformat:2}} ₽</span>
                             {% endif %}
 
                             <div class="Cart-price" style="width:10px"></div>
-                            <strong class="Cart-title">Сумма со скидкой:
+                            <strong class="Cart-title">{% trans "Сумма со скидкой" %}:
                             <span class="Cart-price" style="color:red">{{total_price|floatformat:2}} ₽</span>
                             </strong>
 
 
-                        <div class="Cart-block"><a class="btn btn_success btn_lg" href="{% url 'pages:order-step-1' %}">Оформить заказ</a>
+                        <div class="Cart-block"><a class="btn btn_success btn_lg" href="{% url 'pages:order-step-1' %}">{% trans "Оформить заказ " %}</a>
                         </div>
                     </div>
                     {% else %}
                         <div align="center">
-                        <strong class="Cart-title">Ваша корзина пуста. <a href="{% url 'pages:catalog-view' %}">Продолжить покупки</a>.
+                        <strong class="Cart-title">{% trans "Ваша корзина пуста" %}. <a href="{% url 'pages:catalog-view' %}">{% trans "Продолжить покупки" %}</a>.
                         </strong>
                         <img src="{% static 'assets/img/content/home/empty_cart.jpg' %}" alt="empty_cart" style="max-width: 500px; width: 100%"/>
                         </div>

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block content %}
@@ -31,24 +32,24 @@
                                     <div class="form-group">
                                     </div>
                                     <div class="">
-                                        <label class="label" for="name">Описание
+                                        <label class="label" for="name">{% trans "Описание" %}
                                         </label>
                                         <div>{{ seller.description }}</div>
                                     </div>
                                 </div>
                                 <div class="row-block">
                                     <div class="">
-                                        <label class="label" for="phone">Телефон
+                                        <label class="label" for="phone">{% trans "Телефон" %}
                                         </label>
                                         <div>{{ seller.profile.phone_number }}</div>
                                     </div>
                                     <div class="">
-                                        <label class="label" for="mail">E-mail
+                                        <label class="label" for="mail">Email
                                         </label>
                                         <div>{{ seller.profile.user.email }}</div>
                                     </div>
                                     <div class="">
-                                        <label class="label" for="address">Адрес
+                                        <label class="label" for="address">{% trans "Адрес" %}
                                         </label>
                                         <div>{{ seller.profile.address }}</div>
                                     </div>
@@ -64,7 +65,7 @@
                 <div class="Section-content">
                     <div class="Slider Slider_carousel">
                         <header class="Section-header Section-header_close">
-                            <h2 class="Section-title">Топ 10 товаров
+                            <h2 class="Section-title">{% trans "Топ 10 товаров" %}
                             </h2>
                             <div class="Section-control">
                                 <div class="Slider-navigate">

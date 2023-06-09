@@ -1,4 +1,5 @@
 {% extends 'orders/order_base.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block order_step %}
@@ -7,7 +8,7 @@
     {% if request.session.user_data.delivery_data %}
         <div class="Order-block Order-block_OPEN" id="step3">
             <header class="Section-header Section-header_sm">
-                <h2 class="Section-title">Шаг 3. Способ оплаты
+                <h2 class="Section-title">{% trans "Шаг 3. Способ оплаты" %}
                 </h2>
             </header>
             <div class="form-group">
@@ -38,12 +39,12 @@
                 {% endif %}
                 <div style="margin-bottom: 150px"></div>
             </div>
-            <div class="Order-footer"><button class="btn btn_success" type="submit">Дальше</button>
+            <div class="Order-footer"><button class="btn btn_success" type="submit">{% trans "Дальше" %}</button>
             </div>
         </div>
     {% else %}
         <div align="center">
-            <h2 class="Section-title">Заполните информацию на <a href="{% url 'pages:order-step-2' %}">шаге 2</a>, пожалуйста!</h2>
+            <h2 class="Section-title">{% trans "Заполните информацию на" %} <a href="{% url 'pages:order-step-2' %}">{% trans "шаге 2" %}</a>, {% trans "пожалуйста" %}!</h2>
             <img src="{% static 'assets/img/content/home/bad_order.jpg' %}" alt="bad_order" style="max-width: 700px; width: 100%"/>
         </div>
     {% endif %}

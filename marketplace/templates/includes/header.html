@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static %}
 {% load mptt_tags %}
 {% load category_tags %}
@@ -24,8 +25,8 @@
                         <div class="row ControlPanel-rowSplit">
                             <div class="row-block">
                                 {% if request.user.is_anonymous %}
-                                    <a class="ControlPanel-title" href="{% url 'app_users:login' %}">Вход</a>
-                                    <a class="ControlPanel-title" href="{% url 'app_users:register' %}">Регистрация</a>
+                                    <a class="ControlPanel-title" href="{% url 'app_users:login' %}">{% trans "Вход" %}</a>
+                                    <a class="ControlPanel-title" href="{% url 'app_users:register' %}">{% trans "Регистрация" %}</a>
                                 {% endif %}
                             </div>
                         </div>
@@ -50,20 +51,49 @@
                 <nav class="row-block row-block_right Header-menu">
                     <div class="menuModal" id="navigate">
                         <ul class="menu menu_main">
-                            <li class="menu-item"><a class="menu-link" href="{% url 'pages:index-page' %}">Главная</a>
+                            <li class="menu-item"><a class="menu-link" href="{% url 'pages:index-page' %}">{% trans "Главная" %}</a>
                             </li>
-                            <li class="menu-item"><span class="menu-label menu-label_success">Скидки</span><a class="menu-link" href="{% url 'pages:catalog-view' %}">Каталог</a>
+                            <li class="menu-item"><span class="menu-label menu-label_success">{% trans "Скидки" %}</span><a class="menu-link" href="{% url 'pages:catalog-view' %}">{% trans "Каталог" %}</a>
                             </li>
-                            <li class="menu-item"><a class="menu-link" href="{% url 'pages:all-discounts' %}">Предложения</a>
+                            <li class="menu-item"><a class="menu-link" href="{% url 'pages:all-discounts' %}">{% trans "Предложения" %}</a>
                             </li>
-                            <li class="menu-item"><a class="menu-link" href="{% url 'pages:discount_list' %}">Скидки</a>
+                            <li class="menu-item"><a class="menu-link" href="{% url 'pages:discount_list' %}">{% trans "Скидки" %}</a>
                             </li>
-                            <li class="menu-item"><a class="menu-link" href="{% url 'pages:comparison' %}">Сравнение</a>
+                            <li class="menu-item"><a class="menu-link" href="{% url 'pages:comparison' %}">{% trans "Сравнение" %}</a>
                             </li>
                             {% if request.user.is_staff %}
-                                <li class="menu-item"><a class="menu-link" href="{% url 'pages:import_page' %}">Импорты</a>
+                                <li class="menu-item"><a class="menu-link" href="{% url 'pages:import_page' %}">{% trans "Импорты" %}</a>
                                 </li>
                             {% endif %}
+                            <li>
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            {% block sidebar %}
+                                                <ul class="sidebar-nav">
+                                                   <li>
+                                                       <form action="{% url 'set_language' %}" method="post">
+                                                            {% csrf_token %}
+                                                            <select name="language">
+                                                                {% get_current_language as LANGUAGE_CODE %}
+                                                                {% get_available_languages as LANGUAGES %}
+                                                                {% get_language_info_list for LANGUAGES as languages %}
+                                                                {% for language in languages %}
+                                                                    <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected {% endif %}>
+                                                                        {{ language.name_local }} ({{ language.code }})
+                                                                    </option>
+                                                                {% endfor %}
+                                                            </select>
+                                                            <input type="submit" value="{% trans 'Go' %}">
+                                                       </form>
+                                                   </li>
+
+                                                </ul>
+                                            {% endblock %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -74,9 +104,9 @@
                         <div class="dropdown">
                             <button class="dropbtn"><img class="CartBlock-img" src="{% static 'assets/img/icons/loon-icon.svg'%}" alt="loon-icon.svg" /></button>
                             <div class="dropdown-content">
-                                <a class="dropdown-content-a" href="{% url "app_users:account" request.user.username %}">Личный кабинет</a>
-                                <a class="dropdown-content-a" href="/admin">Административный раздел</a>
-                                <a class="dropdown-content-a" href="/users/logout">Выход</a>
+                                <a class="dropdown-content-a" href="{% url "app_users:account" request.user.username %}">{% trans "Личный кабинет" %}</a>
+                                <a class="dropdown-content-a" href="/admin">{% trans "Административный раздел" %}</a>
+                                <a class="dropdown-content-a" href="/users/logout">{% trans "Выход" %}</a>
                             </div>
                         </div>
                         {% endif %}
@@ -85,7 +115,7 @@
                     </div>
                 </div>
                 <div class="row-block Header-trigger"><a class="menuTrigger" href="#navigate">
-                        <div class="menuTrigger-content">Показать навигацию
+                        <div class="menuTrigger-content">{% trans "Показать навигацию" %}
                         </div><span></span><span></span><span></span>
                     </a>
                 </div>
@@ -97,7 +127,7 @@
                     <div class="CategoriesButton">
                         <div class="CategoriesButton-title">
                             <div class="CategoriesButton-icon"><img src="{% static 'assets/img/icons/allDep.svg'%}" alt="allDep.svg" />
-                            </div><span class="CategoriesButton-text">Все категории</span>
+                            </div><span class="CategoriesButton-text">{% trans "Все категории" %}</span>
                             <div class="CategoriesButton-arrow">
                             </div>
                         </div>
@@ -127,7 +157,7 @@
                     <div class="search">
                         <form class="form form_search" action="{% url 'pages:catalog-view' %}" method="get">
                             <input class="search-input" id="title" name="title" type="text" placeholder="NVIDIA GeForce RTX 3060" />
-                            <button class="search-button" type="submit" name="search" id="search"><img src="{% static 'assets/img/icons/search.svg'%}" />Поиск
+                            <button class="search-button" type="submit" name="search" id="search"><img src="{% static 'assets/img/icons/search.svg'%}" />{% trans "Поиск" %}
                             </button>
                         </form>
                     </div>
